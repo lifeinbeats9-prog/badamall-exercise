@@ -1,29 +1,22 @@
 # badamall-exercise
 
-생성형 AI 활용 웹 서비스 개발 과제용 프로젝트입니다.
+수업 과제용 바다몰 메인페이지 재구성본입니다.
 
-## 문제 1 — 바다몰 화면 재현 + JSON/fetch
-- `index.html` / `style.css` / `app.js` / `products.json`
-- `products.json`을 `fetch()`로 비동기 호출
-- 장바구니 클릭 시 JavaScript 객체를 `JSON.stringify()` 후 POST 전송
-- 실제 주문 기능은 없는 수업용 화면입니다.
+## 과제 요소
+- 실제 바다몰 메인페이지를 참고한 HTML/CSS 레이아웃
+- `products.json` 상품 데이터
+- `fetch('./products.json')` 비동기 GET
+- 장바구니 버튼에서 `JSON.stringify()` + `fetch(..., { method: 'POST' })`
+- 메인 배너 슬라이더
 
-### 상품 이미지 교체
-`images/01.jpg` ~ `images/08.jpg` 파일을 올리면 자동으로 적용됩니다.
-이미지가 없으면 `images/placeholder.svg`가 표시됩니다.
-
-## 문제 2 — Hugging Face / Colab
-`colab/problem2_huggingface_colab.ipynb`
-- 감정 분석
-- 한→영 번역
-- 문서 요약
-
-## 문제 3 — FastAPI + Hugging Face
-`fastapi/` 폴더
+## 로컬 실행
+정적 파일을 직접 더블클릭하면 브라우저 보안 정책 때문에 JSON fetch가 막힐 수 있습니다.
 
 ```bash
-pip install -r requirements.txt
-uvicorn main:app --reload
+python -m http.server 8000
 ```
 
-브라우저에서 `http://127.0.0.1:8000` 접속.
+이후 `http://localhost:8000` 접속.
+
+## GitHub Pages
+`main` 브랜치의 `/ (root)`를 Pages 소스로 지정하면 됩니다.
