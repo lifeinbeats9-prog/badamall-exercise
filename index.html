@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>바다몰 :: 온라인 수산 마켓</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <span>신선한 수산물을 집 앞으로</span>
+      <nav><a href="#">로그인</a><a href="#">회원가입</a><a href="#">주문조회</a><a href="#">장바구니 <b id="cartCount">0</b></a></nav>
+    </div>
+  </div>
+
+  <header class="wrap header">
+    <a class="logo" href="#">바다몰<span>온라인 수산 마켓</span></a>
+    <div class="search"><input id="searchInput" type="text" placeholder="상품을 검색해보세요"/><button id="searchBtn">검색</button></div>
+    <div class="header-mini">오늘도 신선하게<br><strong>SEAFOOD MARKET</strong></div>
+  </header>
+
+  <nav class="gnb">
+    <div class="wrap gnb-inner">
+      <button class="all-menu">☰ 전체상품</button>
+      <button data-category="all" class="active">전체</button>
+      <button data-category="임박할인">임박할인!</button>
+      <button data-category="BEST">베스트</button>
+      <button data-category="주꾸미명가">주꾸미명가</button>
+      <button data-category="연어">연어</button>
+      <button data-category="새우">새우</button>
+      <button data-category="날치알">날치알</button>
+      <button data-category="조개 · 생선류">조개 · 생선류</button>
+      <button data-category="가공식품">가공식품</button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">바다가 식탁까지</p>
+          <h1>신선한 수산물,<br>바다몰에서 간편하게</h1>
+          <p>주꾸미 · 연어 · 새우 · 날치알 · 조개류를 한곳에서 만나보세요.</p>
+          <button onclick="document.querySelector('#products').scrollIntoView({behavior:'smooth'})">신상품 보기</button>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="bubble b1"></div><div class="bubble b2"></div><div class="bubble b3"></div>
+          <div class="fish">🐟</div><div class="shrimp">🦐</div><div class="wave">≈≈≈≈≈≈</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap benefit-row">
+      <div><b>냉동·냉장 배송</b><span>안전하게 포장해 발송합니다.</span></div>
+      <div><b>5만원 이상 무료배송</b><span>장바구니를 한 번에 채워보세요.</span></div>
+      <div><b>다양한 수산 전문상품</b><span>업소용·가정용 모두 준비했습니다.</span></div>
+    </section>
+
+    <section class="wrap products-section" id="products">
+      <div class="section-title"><div><span>NEW & BEST</span><h2>바다몰 추천상품</h2></div><p id="resultText">상품 데이터를 불러오는 중입니다.</p></div>
+      <div id="productGrid" class="product-grid"></div>
+    </section>
+
+    <section class="notice-strip">
+      <div class="wrap notice-inner"><strong>CS CENTER</strong><span>070-8622-7460</span><span>평일 10:00 ~ 18:00 · 점심 12:00 ~ 13:00</span><strong>배송안내</strong><span>CJ대한통운 · 5만원 이상 무료배송</span></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <strong>바다몰</strong>
+      <p>웹 서비스 개발 평가용 화면 재현 프로젝트 · 실제 주문 기능은 제공하지 않습니다.</p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
