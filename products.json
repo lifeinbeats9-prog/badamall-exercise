@@ -1,10 +1,20 @@
-[
-  {"id":1,"name":"통관자주꾸미명가 450g","price":11900,"category":"주꾸미명가","image":"images/01.jpg","badge":"신상품"},
-  {"id":2,"name":"골드레드날치알 180g (45gx2+45gx2)","price":10500,"category":"날치알","image":"images/02.jpg","badge":"BEST"},
-  {"id":3,"name":"뉴질랜드 자숙그린홍합 800g 초록입홍합","price":17900,"category":"조개 · 생선류","image":"images/03.jpg","badge":"추천"},
-  {"id":4,"name":"초밥용 아르헨티나 붉은새우살 160g","price":9900,"category":"새우","image":"images/04.jpg","badge":"신상품"},
-  {"id":5,"name":"날치알 골드 150g","price":8500,"category":"날치알","image":"images/05.jpg","badge":"추천"},
-  {"id":6,"name":"단새우 아마애비 90g(20미)","price":9900,"category":"새우","image":"images/06.jpg","badge":"BEST"},
-  {"id":7,"name":"주꾸미명가 500gX5팩 (보통맛, 매운맛)","price":62500,"category":"주꾸미명가","image":"images/07.jpg","badge":"추천"},
-  {"id":8,"name":"초밥용 훈제연어(20미) 120g","price":9500,"category":"연어","image":"images/08.jpg","badge":"BEST"}
-]
+{
+  "newProducts": [
+    {"id":496,"rank":1,"name":"통관자주꾸미명가 450g","price":11900,"image":"e4b0662a3a789a093fc70ec46996f59e.jpeg","badges":["MD CHOICE","HOT"]},
+    {"id":474,"rank":2,"name":"골드레드날치알 180g (45gx2+45gx2)","price":10500,"image":"83c3ca7e765eaf3e5a44785b83ee21f6.jpeg","badges":["NEW"]},
+    {"id":188,"rank":3,"name":"뉴질랜드 자숙그린홍합 800g초록입홍합","price":17900,"image":"6abc766bf221eb6f941d6a3d0a0bb722.jpeg","badges":[]},
+    {"id":391,"rank":4,"name":"초밥용 아르헨티나 붉은새우살 160g","price":9900,"image":"a097e4c6be5c447339d41764cd24bf4f.jpeg","badges":["MD CHOICE"]},
+    {"id":437,"rank":5,"name":"아르헨티나 초홍새우살 160gX20팩","price":138000,"image":"a097e4c6be5c447339d41764cd24bf4f.jpeg","badges":[]},
+    {"id":442,"rank":6,"name":"초훈제연어 (20미) 120gX50팩","price":279000,"image":"0fe050cdbaa6b15f5594f34470c8fe1b.jpeg","badges":["NEW"]},
+    {"id":460,"rank":7,"name":"북방대합조개살 2.5kg B (횟감용)","price":48900,"image":"fe1940f286cf41f77b9683352acbe3f5.jpeg","badges":["NEW"]},
+    {"id":461,"rank":8,"name":"북방대합조개살 2.5kg B (횟감용)","price":48900,"image":"fe1940f286cf41f77b9683352acbe3f5.jpeg","badges":["NEW"]}
+  ],
+  "bestProducts": [
+    {"id":496,"rank":1,"name":"통관자주꾸미명가 450g","price":11900,"image":"e4b0662a3a789a093fc70ec46996f59e.jpeg","badges":["MD CHOICE","HOT"]},
+    {"id":516,"rank":2,"name":"날치알 골드 150g","price":8500,"image":"ada12ad20d37b18b4d80bcf98abb4c15.jpeg","badges":[]},
+    {"id":480,"rank":3,"name":"단새우 아마애비 90g(20미)","price":9900,"image":"ae9e9f7080153c15009bdb7998557857.jpeg","badges":["NEW"]},
+    {"id":461,"rank":4,"name":"북방대합조개살 2.5kg B (횟감용)","price":48900,"image":"fe1940f286cf41f77b9683352acbe3f5.jpeg","badges":["NEW"]},
+    {"id":392,"rank":5,"name":"주꾸미명가 500gX5팩 (보통맛, 매운맛)","price":62500,"image":"3d32c38021fc3f08920e545771a98169.jpeg","badges":["HOT"]},
+    {"id":443,"rank":6,"name":"초밥용 훈제연어(20미) 120g","price":9500,"image":"fe753cd7f770180b2f089f5d4bed4926.jpeg","badges":["NEW"]}
+  ]
+}
