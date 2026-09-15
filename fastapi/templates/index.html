@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>바다몰 AI Text Lab</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,'Noto Sans KR',sans-serif;background:#eef5f8;color:#1c313b}.top{background:#0b6fa4;color:white;padding:30px 20px}.top .inner,.wrap{max-width:1050px;margin:auto}.top h1{margin:0 0 7px}.top p{margin:0;opacity:.85}.wrap{padding:34px 20px}.tabs{display:flex;gap:8px;margin-bottom:20px}.tabs button{border:1px solid #b9cbd3;background:#fff;padding:11px 18px;border-radius:6px;cursor:pointer}.tabs button.active{background:#0b6fa4;color:#fff;border-color:#0b6fa4}.panel{display:none;background:#fff;border-radius:12px;padding:26px;box-shadow:0 10px 28px rgba(30,60,75,.09)}.panel.active{display:block}.panel h2{margin-top:0}textarea{width:100%;min-height:150px;resize:vertical;padding:14px;border:1px solid #ccd9df;border-radius:7px;font:inherit;line-height:1.6}.run{margin-top:12px;background:#123e52;color:#fff;border:0;border-radius:6px;padding:12px 19px;cursor:pointer;font-weight:700}.result{margin-top:18px;background:#f6f9fa;border-left:4px solid #0b6fa4;padding:16px;min-height:65px;white-space:pre-wrap;line-height:1.55}.hint{font-size:12px;color:#74868e;margin-top:8px}.json{font-family:Consolas,monospace;font-size:12px;background:#16252d;color:#d9f1ff;padding:15px;border-radius:6px;margin-top:12px;white-space:pre-wrap;overflow:auto}.loading{opacity:.6}
+</style>
+</head>
+<body>
+<div class="top"><div class="inner"><h1>바다몰 AI Text Lab</h1><p>FastAPI + Hugging Face 기반 자연어 처리 웹 서비스</p></div></div>
+<div class="wrap">
+  <div class="tabs">
+    <button class="active" data-tab="sentiment">감정 분석</button>
+    <button data-tab="translate">한→영 번역</button>
+    <button data-tab="summarize">문서 요약</button>
+  </div>
+  <section id="sentiment" class="panel active">
+    <h2>긍정 / 부정 분석</h2><textarea>배송도 빠르고 상품도 정말 신선해서 만족합니다.</textarea><button class="run" data-api="sentiment">AI 분석 실행</button><p class="hint">POST /api/sentiment → JSON 반환</p><div class="result">결과가 여기에 표시됩니다.</div><div class="json"></div>
+  </section>
+  <section id="translate" class="panel">
+    <h2>한국어 → 영어 번역</h2><textarea>바다몰은 신선한 수산물을 판매하는 온라인 쇼핑몰입니다.</textarea><button class="run" data-api="translate">AI 번역 실행</button><p class="hint">POST /api/translate → JSON 반환</p><div class="result">결과가 여기에 표시됩니다.</div><div class="json"></div>
+  </section>
+  <section id="summarize" class="panel">
+    <h2>한국어 문서 요약</h2><textarea>온라인 수산물 쇼핑몰은 소비자가 시장에 직접 방문하지 않아도 다양한 수산물을 비교하고 주문할 수 있다는 장점이 있다. 특히 냉동과 냉장 배송 기술이 발달하면서 새우, 연어, 조개류와 같은 상품도 비교적 안정적으로 배송할 수 있게 되었다. 소비자는 상품의 원산지와 중량, 가격, 배송 조건을 확인한 뒤 주문하며, 판매자는 상품 정보를 정확하게 제공해야 한다. 또한 온라인 쇼핑몰은 검색, 장바구니, 주문 조회와 같은 기능을 제공하여 구매 과정을 편리하게 만든다.</textarea><button class="run" data-api="summarize">AI 요약 실행</button><p class="hint">POST /api/summarize → JSON 반환</p><div class="result">결과가 여기에 표시됩니다.</div><div class="json"></div>
+  </section>
+</div>
+<script>
+document.querySelectorAll('.tabs button').forEach(btn=>btn.onclick=()=>{
+ document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+ document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.getElementById(btn.dataset.tab).classList.add('active');
+});
+document.querySelectorAll('.run').forEach(btn=>btn.onclick=async()=>{
+ const panel=btn.closest('.panel'), text=panel.querySelector('textarea').value, resultBox=panel.querySelector('.result'), jsonBox=panel.querySelector('.json');
+ btn.disabled=true;panel.classList.add('loading');resultBox.textContent='모델 처리 중...';jsonBox.textContent='';
+ try{
+   const res=await fetch('/api/'+btn.dataset.api,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text})});
+   const data=await res.json();
+   if(btn.dataset.api==='sentiment') resultBox.textContent=`판정: ${data.label}\n신뢰도: ${data.score}`;
+   if(btn.dataset.api==='translate') resultBox.textContent=data.translation;
+   if(btn.dataset.api==='summarize') resultBox.textContent=data.summary;
+   jsonBox.textContent=JSON.stringify(data,null,2);
+ }catch(e){resultBox.textContent='오류: '+e.message}
+ finally{btn.disabled=false;panel.classList.remove('loading')}
+});
+</script>
+</body></html>
